@@ -1,0 +1,119 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "qiniu-js",
+        "scope": null,
+        "escapedName": "qiniu-js",
+        "name": "qiniu-js",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/feizheng/git-oschina/dacang-qunpai"
+    ]
+  ],
+  "_cnpm_publish_time": 1486436976670,
+  "_from": "qiniu-js@latest",
+  "_id": "qiniu-js@1.0.18",
+  "_inCache": true,
+  "_location": "/qiniu-js",
+  "_nodeVersion": "7.5.0",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/qiniu-js-1.0.18.tgz_1486436976432_0.8334624094422907"
+  },
+  "_npmUser": {
+    "name": "qiniusdk",
+    "email": "sdk@qiniu.com"
+  },
+  "_npmVersion": "4.1.2",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "qiniu-js",
+    "scope": null,
+    "escapedName": "qiniu-js",
+    "name": "qiniu-js",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npm.taobao.org/qiniu-js/download/qiniu-js-1.0.18.tgz",
+  "_shasum": "61c8be8f40ac7579296a8783677f8fe037109ab8",
+  "_shrinkwrap": null,
+  "_spec": "qiniu-js",
+  "_where": "/Users/feizheng/git-oschina/dacang-qunpai",
+  "author": {
+    "name": "sdk@qiniu.com"
+  },
+  "bugs": {
+    "url": "https://github.com/qiniu/js-sdk/issues"
+  },
+  "contributors": [
+    {
+      "name": "codedogfish",
+      "email": "jackyu@qiniu.com"
+    },
+    {
+      "name": "dengchenhua",
+      "email": "dengchenhua@qiniu.com"
+    }
+  ],
+  "dependencies": {},
+  "description": "Javascript SDK for Qiniu Resource (Cloud) Storage API",
+  "devDependencies": {
+    "bower": "^1.6.8",
+    "ejs": "~1.0.0",
+    "express": "~3.4.7",
+    "grunt": "~0.4.2",
+    "grunt-cli": "~0.1.13",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "qiniu": "~6.1.1"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "61c8be8f40ac7579296a8783677f8fe037109ab8",
+    "size": 98524,
+    "noattachment": false,
+    "tarball": "http://registry.npm.taobao.org/qiniu-js/download/qiniu-js-1.0.18.tgz"
+  },
+  "gitHead": "860896089ad0faad5c545f4374b9880377716ddc",
+  "homepage": "https://github.com/qiniu/js-sdk#readme",
+  "jsName": "qiniu",
+  "keywords": [
+    "cloud",
+    "storage",
+    "s3",
+    "qiniu",
+    "web-service"
+  ],
+  "license": "MIT",
+  "main": "dist/qiniu.js",
+  "maintainers": [
+    {
+      "name": "qiniusdk",
+      "email": "sdk@qiniu.com"
+    }
+  ],
+  "name": "qiniu-js",
+  "optionalDependencies": {},
+  "private": false,
+  "publish_time": 1486436976670,
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/qiniu/js-sdk.git"
+  },
+  "scripts": {
+    "start": "node demo/server.js"
+  },
+  "version": "1.0.18"
+}
