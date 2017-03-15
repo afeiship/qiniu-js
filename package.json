@@ -63,7 +63,9 @@
       "email": "dengchenhua@qiniu.com"
     }
   ],
-  "dependencies": {},
+  "dependencies": {
+    "moxie": "0.0.0"
+  },
   "description": "Javascript SDK for Qiniu Resource (Cloud) Storage API",
   "devDependencies": {
     "bower": "^1.6.8",
