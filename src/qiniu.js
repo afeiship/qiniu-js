@@ -659,13 +659,14 @@ function QiniuJsSDK() {
             return;
         };
 
-        var getUptoken = function(file) {
-            if (!that.token || that.tokenInfo.isExpired()) {
+        var getUptoken = function (file) {
+            if (!that.token || (that.tokenInfo && that.tokenInfo.isExpired())) {
                 return getNewUpToken(file);
             } else {
                 return that.token;
             }
         };
+
 
         // getNewUptoken maybe called at Init Event or BeforeUpload Event
         // case Init Event, the file param of getUptken will be set a null value
