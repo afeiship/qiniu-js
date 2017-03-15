@@ -660,7 +660,7 @@ function QiniuJsSDK() {
         };
 
         var getUptoken = function(file) {
-            if (!that.token || (op.uptoken_url && that.tokenInfo.isExpired())) {
+            if (!that.token || that.tokenInfo.isExpired()) {
                 return getNewUpToken(file);
             } else {
                 return that.token;
@@ -1335,8 +1335,7 @@ function QiniuJsSDK() {
                                     status: ajax.status,
                                     response: ajax.responseText,
                                     file: file,
-                                    code: -200,
-                                    responseHeaders: ajax.getAllResponseHeaders()
+                                    code: -200
                                 };
                                 logger.debug("mkfile is error: ", info);
                                 uploader.trigger('Error', info);
@@ -1393,17 +1392,14 @@ function QiniuJsSDK() {
      * @return {String} url of processed image
      */
     this.imageView2 = function(op, key) {
-        
-        if (!/^\d$/.test(op.mode)) {
-            return false;
-        }
-
-        var mode = op.mode,
+        var mode = op.mode || '',
             w = op.w || '',
             h = op.h || '',
             q = op.q || '',
             format = op.format || '';
-
+        if (!mode) {
+            return false;
+        }
         if (!w && !h) {
             return false;
         }
@@ -1628,10 +1624,8 @@ global.Qiniu = Qiniu;
 global.QiniuJsSDK = QiniuJsSDK;
 
 
-//Add for npm by fei:
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports =Qiniu;
+	module.exports = Qiniu;
 }
-
 
 })( window );
