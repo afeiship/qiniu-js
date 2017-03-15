@@ -12,5 +12,5 @@ module.exports={
     mOxie:mOxie,
     plupload:plupload,
     Qiniu:Qiniu,
-    init:init
+    QiniuInit:init
 }
