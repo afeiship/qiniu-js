@@ -7007,11 +7007,11 @@ define("moxie/runtime/html5/file/FileInput", [
 				//bugfix for lower android:
 				if(arrayIndexOf(mimes,'.jpg')!==-1){
 					if(mimes.length === 11){
-						mimes = ['images/*'];
+						mimes = ['image/*'];
 					}else{
 						var acceptString = mimes.join(',');
 						mimes = arrayMap(mimes,function(mime,index){
-							return 'images/' + mime.slice(1);
+							return 'image/' + mime.slice(1);
 						});
 					}
 				}
