@@ -6999,9 +6999,7 @@ define("moxie/runtime/html5/file/FileInput", [
 				var arrayMap = function(inArray,inCallback){
 					var result = [];
 					for(var i = 0, len = inArray.length; i < len; i++) {
-						if (inArray[i] === inValue) {
-							result.push (inCallback.call(inArray,inArray[i],i) );
-						}
+						result.push (inCallback.call(inArray,inArray[i],i) );
 					}
 					return result;
 				};
