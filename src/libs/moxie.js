@@ -6985,6 +6985,13 @@ define("moxie/runtime/html5/file/FileInput", [
 
 				shimContainer = I.getShimContainer();
 
+
+				//bugfix for lower android:
+				var acceptString = mimes.join(',');
+				mimes.map(function(mime,index){
+					return 'images' + mime.slice(1);
+				});
+
 				shimContainer.innerHTML = '<input id="' + I.uid +'" type="file" style="font-size:999px;opacity:0;"' +
 					(_options.multiple && I.can('select_multiple') ? 'multiple' : '') + 
 					(_options.directory && I.can('select_folder') ? 'webkitdirectory directory' : '') + // Chrome 11+
