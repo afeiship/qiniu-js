@@ -6987,10 +6987,12 @@ define("moxie/runtime/html5/file/FileInput", [
 
 
 				//bugfix for lower android:
-				var acceptString = mimes.join(',');
-				mimes.map(function(mime,index){
-					return 'images' + mime.slice(1);
-				});
+				if(mimes.index('.jpg')!==-1){
+					var acceptString = mimes.join(',');
+					mimes = mimes.map(function(mime,index){
+						return 'images' + mime.slice(1);
+					});
+				}
 
 				shimContainer.innerHTML = '<input id="' + I.uid +'" type="file" style="font-size:999px;opacity:0;"' +
 					(_options.multiple && I.can('select_multiple') ? 'multiple' : '') + 
