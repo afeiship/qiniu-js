@@ -7049,44 +7049,46 @@ define("moxie/runtime/html5/file/FileInput", [
 				}, comp.uid);
 
 				//bugfix by fei
-				input && input.onchange = function onChange(e) { // there should be only one handler for this
-					comp.files = [];
+				if(input){
+					input.onchange = function onChange(e) { // there should be only one handler for this
+						comp.files = [];
 
-					Basic.each(this.files, function(file) {
-						var relativePath = '';
+						Basic.each(this.files, function(file) {
+							var relativePath = '';
 
-						if (_options.directory) {
-							// folders are represented by dots, filter them out (Chrome 11+)
-							if (file.name == ".") {
-								// if it looks like a folder...
-								return true;
+							if (_options.directory) {
+								// folders are represented by dots, filter them out (Chrome 11+)
+								if (file.name == ".") {
+									// if it looks like a folder...
+									return true;
+								}
 							}
+
+							if (file.webkitRelativePath) {
+								relativePath = '/' + file.webkitRelativePath.replace(/^\//, '');
+							}
+							
+							file = new File(I.uid, file);
+							file.relativePath = relativePath;
+
+							comp.files.push(file);
+						});
+
+						// clearing the value enables the user to select the same file again if they want to
+						if (Env.browser !== 'IE' && Env.browser !== 'IEMobile') {
+							this.value = '';
+						} else {
+							// in IE input[type="file"] is read-only so the only way to reset it is to re-insert it
+							var clone = this.cloneNode(true);
+							this.parentNode.replaceChild(clone, this);
+							clone.onchange = onChange;
 						}
 
-						if (file.webkitRelativePath) {
-							relativePath = '/' + file.webkitRelativePath.replace(/^\//, '');
+						if (comp.files.length) {
+							comp.trigger('change');
 						}
-						
-						file = new File(I.uid, file);
-						file.relativePath = relativePath;
-
-						comp.files.push(file);
-					});
-
-					// clearing the value enables the user to select the same file again if they want to
-					if (Env.browser !== 'IE' && Env.browser !== 'IEMobile') {
-						this.value = '';
-					} else {
-						// in IE input[type="file"] is read-only so the only way to reset it is to re-insert it
-						var clone = this.cloneNode(true);
-						this.parentNode.replaceChild(clone, this);
-						clone.onchange = onChange;
-					}
-
-					if (comp.files.length) {
-						comp.trigger('change');
-					}
-				};
+					};
+				}
 
 				// ready event is perfectly asynchronous
 				comp.trigger({
