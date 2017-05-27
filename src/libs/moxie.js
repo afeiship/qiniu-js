@@ -7006,10 +7006,14 @@ define("moxie/runtime/html5/file/FileInput", [
 
 				//bugfix for lower android:
 				if(arrayIndexOf(mimes,'.jpg')!==-1){
-					var acceptString = mimes.join(',');
-					mimes = arrayMap(mimes,function(mime,index){
-						return 'images/' + mime.slice(1);
-					});
+					if(mimes.length === 11){
+						mimes = ['images/*'];
+					}else{
+						var acceptString = mimes.join(',');
+						mimes = arrayMap(mimes,function(mime,index){
+							return 'images/' + mime.slice(1);
+						});
+					}
 				}
 
 				shimContainer.innerHTML = '<input id="' + I.uid +'" type="file" style="font-size:999px;opacity:0;"' +
