@@ -6993,7 +6993,7 @@ define("moxie/runtime/html5/file/FileInput", [
 				input = Dom.get(I.uid);
 
 				// prepare file input to be placed underneath the browse_button element
-				
+				//bugfix by fei
 				input && Basic.extend(input.style, {
 					position: 'absolute',
 					top: 0,
@@ -7048,8 +7048,8 @@ define("moxie/runtime/html5/file/FileInput", [
 					comp.trigger('mouseup');
 				}, comp.uid);
 
-
-				input.onchange = function onChange(e) { // there should be only one handler for this
+				//bugfix by fei
+				input && input.onchange = function onChange(e) { // there should be only one handler for this
 					comp.files = [];
 
 					Basic.each(this.files, function(file) {
