@@ -6985,14 +6985,32 @@ define("moxie/runtime/html5/file/FileInput", [
 
 				shimContainer = I.getShimContainer();
 
-				//ArrayIndexOf
-				//todo: maybe need polyfill:
+				//ArrayIndexOf/arrayMap polyfill
+				var arrayIndexOf = function(inArray,inValue){
+					var index = -1;
+					for(var i = 0, len = inArray.length; i < len; i++) {
+						if (inArray[i] === inValue) {
+							index = i;
+							break;
+						}
+					}
+					return index;
+				};
+				var arrayMap = function(inArray,inCallback){
+					var result = [];
+					for(var i = 0, len = inArray.length; i < len; i++) {
+						if (inArray[i] === inValue) {
+							result.push (inCallback.call(inArray,inArray[i],i) );
+						}
+					}
+					return result;
+				};
 
 				//bugfix for lower android:
-				if(mimes.indexOf('.jpg')!==-1){
+				if(arrayIndexOf(mimes,'.jpg')!==-1){
 					var acceptString = mimes.join(',');
-					mimes = mimes.map(function(mime,index){
-						return 'images' + mime.slice(1);
+					mimes = arrayMap(mimes,function(mime,index){
+						return 'images/' + mime.slice(1);
 					});
 				}
 
