@@ -6985,9 +6985,11 @@ define("moxie/runtime/html5/file/FileInput", [
 
 				shimContainer = I.getShimContainer();
 
+				//ArrayIndexOf
+				//todo: maybe need polyfill:
 
 				//bugfix for lower android:
-				if(mimes.index('.jpg')!==-1){
+				if(mimes.indexOf('.jpg')!==-1){
 					var acceptString = mimes.join(',');
 					mimes = mimes.map(function(mime,index){
 						return 'images' + mime.slice(1);
